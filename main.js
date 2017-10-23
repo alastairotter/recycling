@@ -4,7 +4,8 @@ var totalMoney = 0,
     cansCollected = 0,
     cansPerBag = 5,
     bagsCollected = 0,
-    buyBackPrice = 0.50;
+    buyBackPrice = 0.50,
+    totalCans = 0;
 
 
 // time lapse
@@ -21,7 +22,6 @@ window.onload = function () {
         load();    
     }
     updateButtons();
-    
     start();
 }
 
@@ -30,18 +30,26 @@ window.onload = function () {
 function start() {
     
     setInterval( function () { 
-            
-        prices();
-        updateButtons(); 
-        save();
-        timeLapse++;
+    housekeeping();       
         
         
-    }, 1000);
+        
+    }, 500);
 }
 
 
+function housekeeping() { 
+    prices();
+    updateButtons(); 
+    save();
+    timeLapse++;
+    updateTime();
+}
 
+function updateTime() { 
+    document.getElementById("time-lapse").innerHTML = timeLapse;
+    
+}
 
 
 
@@ -63,7 +71,8 @@ function save() {
         cansCollected: cansCollected, 
         cansPerBag: cansPerBag, 
         bagsCollected: bagsCollected,
-        buyBackPrice: buyBackPrice
+        buyBackPrice: buyBackPrice,
+        totalCans: totalCans
     }
     
 
@@ -85,13 +94,15 @@ function load() {
     cansCollected = loadGame.cansCollected,
     cansPerBag = loadGame.cansPerBag,
     bagsCollected = loadGame.bagsCollected,
-    buyBackPrice = loadGame.buyBackPrice;
+    buyBackPrice = loadGame.buyBackPrice,
+    totalCans = loadGame.totalCans;
     
     // load fields
     document.getElementById("cans-collected").innerHTML = cansCollected;
     document.getElementById("bags-collected").innerHTML = bagsCollected;
     document.getElementById("buyBackPrice").innerHTML = buyBackPrice;
     document.getElementById("totalMoney").innerHTML = totalMoney;
+    document.getElementById("totalCans").innerHTML = totalCans;
     
     
 
@@ -114,10 +125,12 @@ function updateButtons() {
 function collectCans() { 
     
     cansCollected++;
+    totalCans++;
         
     if(cansCollected === cansPerBag) { 
         bagsCollected++; 
         cansCollected = 0; 
+        updateButtons();
     }
         
     document.getElementById("cans-collected").innerHTML = cansCollected;
@@ -138,6 +151,7 @@ function prices() {
     var check = randomInt(0,100);
     if(check < 10) { 
     buyBackPrice = randomInt(40,80) / 100;
+    buyBackPrice = buyBackPrice.toFixed(2);
     document.getElementById("buyBackPrice").innerHTML = buyBackPrice;
     }
 
@@ -149,9 +163,12 @@ function sellCans() {
     
     totalMoney = totalMoney + bagsCollected * buyBackPrice; 
     bagsCollected = 0;
+    totalCans = totalCans + bagsCollected * cansPerBag;
+    
     document.getElementById("bags-collected").innerHTML = bagsCollected;
-    document.getElementById("totalMoney").innerHTML = totalMoney;
+    document.getElementById("totalMoney").innerHTML = totalMoney.toFixed(2);
     document.getElementById("buyBackPrice").innerHTML = buyBackPrice;
+    document.getElementById("totalCans").innerHTML = totalCans;
     updateButtons();
     
     

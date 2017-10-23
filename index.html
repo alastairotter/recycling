@@ -5,24 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Recycling</title>
 <!--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">-->
+   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     
 </head>
 <body>
+<div class="container">
 
+<div class="top-left">
+<div class="header">Recycling</div>
+
+<div class="totals">
+    <div>Cans recycled: <span id="totalCans"> 0</span></div>
+</div>
 
 <div class="section-head">Collection</div>
   <div>Money: R <span id="totalMoney"> 0</span></div>
    <div> <button onClick="collectCans();">Collect Cans</button></div>
-    <div>Cans collected: <span  id="cans-collected"> 0</span></div>
-    <div>Bags collected: <span  id="bags-collected"> 0</span></div>
+    <div>Cans: <span  id="cans-collected"> 0</span></div>
+    <div>Bags: <span  id="bags-collected"> 0</span></div>
     
     <div> <button id="sellCans" onClick="sellCans();">Sell cans</button></div>
-    <div>Price per bag: R <span  id="buyBackPrice"> 0</span></div>
+    <div>Buy back centre R/bag: R <span  id="buyBackPrice"> 0</span></div>
     
 <br />
 <div><a onClick="reset();">Reset</a></div>
+   
+   <div class="console">
+    <div>Time lapse: <span  id="time-lapse"> 0</span></div>
+    </div>
+    
+    
+</div> <!-- top-left -->
 
+    
+
+   
+   
+</div> <!-- Container -->
+   
+   <div class="console-wrap"></div>
+    
 <script src="main.js"></script>
 </body>
 </html>

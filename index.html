@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recycling</title>
+<!--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">-->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+
+<div class="section-head">Collection</div>
+  <div>Money: R <span id="totalMoney"> 0</span></div>
+   <div> <button onClick="collectCans();">Collect Cans</button></div>
+    <div>Cans collected: <span  id="cans-collected"> 0</span></div>
+    <div>Bags collected: <span  id="bags-collected"> 0</span></div>
+    
+    <div> <button id="sellCans" onClick="sellCans();">Sell cans</button></div>
+    <div>Price per bag: R <span  id="buyBackPrice"> 0</span></div>
+    
+<br />
+<div><a onClick="reset();">Reset</a></div>
+
+<script src="main.js"></script>
+</body>
+</html>

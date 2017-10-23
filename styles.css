@@ -1,0 +1,29 @@
+body { 
+/*    font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;*/
+/*    font-size: 90%;*/
+    line-height: 150%;
+   
+}
+
+.section-head { 
+    font-weight: 700;
+    width: 300px;
+    border-bottom: solid 1px gray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    }
+
+button { 
+    background: -webkit-linear-gradient(#ffffff, #888888);
+    background: -o-linear-gradient(#ffffff, #888888);
+    background: linear-gradient(#ffffff, #888888);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+button.disabled { 
+    opacity: 0.65; 
+    cursor: not-allowed;
+}
+

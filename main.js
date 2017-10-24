@@ -1,4 +1,9 @@
+// Fixed defaults
+var aluminiumCanWeight = 15; // grams
+
 // defaults/start values ----------------------------------
+
+
 
 var totalMoney = 0, 
     cansCollected = 0,
